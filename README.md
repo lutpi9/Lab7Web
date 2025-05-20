@@ -300,3 +300,31 @@ Selanjutnya refresh tampilan pada alamat http://localhost:8080/about
 
 ![layout (2)](https://github.com/user-attachments/assets/025f198b-3c53-44f5-bbc3-a5c8b9be2685)
 
+
+
+# Praktikum 2: Framework Lanjutan (CRUD) - CodeIgniter 4
+
+# Tujuan
+1. mampu memahami konsep dasar Model.
+2. mampu memahami konsep dasar CRUD.
+3. mampu membuat program sederhana menggunakan Framework Codeigniter4.
+
+   
+# Instruksi Praktikum
+1. Persiapkan text editor misalnya VSCode.
+2. Buka kembali folder dengan nama lab7_php_ci pada docroot webserver (htdocs)
+3. Ikuti langkah-langkah praktikum yang akan dijelaskan berikutnya.
+
+   
+# Langkah-langkah Praktikum
+Persiapan.
+Untuk memulai membuat aplikasi CRUD sederhana, yang perlu disiapkan adalah database
+server menggunakan MySQL. Pastikan MySQL Server sudah dapat dijalankan melalui
+XAMPP.
+Membuat Database: Studi Kasus Data Artikel
+
+<img width="598" alt="TABEL DATABASE" src="https://github.com/user-attachments/assets/7b055f63-88d8-47c5-b221-70062091366c" />
+
+```
+CREATE DATABASE lab_ci4;
+```
