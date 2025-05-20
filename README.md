@@ -1,4 +1,4 @@
-# Pertemuan ke 2 <img src=https://seeklogo.com/images/E/elephpant-mascot-php-logo-4C78D1AC4E-seeklogo.com.png width="120px" >
+# Pertemuan ke 1-3 <img src=https://seeklogo.com/images/E/elephpant-mascot-php-logo-4C78D1AC4E-seeklogo.com.png width="120px" >
 
 ## Profil
 |  |  |
@@ -11,29 +11,31 @@
 
 ## Langkah-langkah Praktikum
 ## Persiapan
-Sebelum memulai menggunakan Framework Codeigniter, perlu dilakukan konfigurasi pada webserver. Beberapa ekstensi PHP perlu diaktifkan untuk kebutuhan pengembangan Codeigniter 4.
+Langkah-langkah Praktikum
+Sebelum memulai menggunakan Framework Codeigniter, perlu dilakukan konfigurasi pada
+webserver. Beberapa ekstensi PHP perlu diaktifkan untuk kebutuhan pengembangan
+Codeigniter 4.
 Berikut beberapa ekstensi yang perlu diaktifkan:
-* php-json ekstension untuk bekerja dengan JSON;
-* php-mysqlnd native driver untuk MySQL;
-* php-xml ekstension untuk bekerja dengan XML;
-* php-intl ekstensi untuk membuat aplikasi multibahasa;
-* libcurl (opsional), jika ingin pakai Curl.
-
-Untuk mengetahui ekstensi tersebut telah aktif atau belum, kita bisa mengetahui nya melalui powershell atau command prompt dengan cara:
+• php-json ekstension untuk bekerja dengan JSON;
+• php-mysqlnd native driver untuk MySQL;
+• php-xml ekstension untuk bekerja dengan XML;
+• php-intl ekstensi untuk membuat aplikasi multibahasa;
+• libcurl (opsional), jika ingin pakai Curl.
+Untuk mengaktifkan ekstentsi tersebut, melalu XAMPP Control Panel, pada bagian Apache
+klik Config -> PHP.ini
 
 ### Catatan : mulai dari PHP 7.0, ekstensi JSON biasanya sudah termasuk secara bawaan.
 
 <img width="675" alt="cmd1" src="https://github.com/user-attachments/assets/c58ce11f-8f12-4425-be47-32cb3209315a" />
 
-Lalu kalian bisa mencari ekstensi yang kalian butuhkan, jika ada yang belum diaktivasi kalian dapat mengaktifkan ekstensi tersebut, melalu XAMPP Control Panel, pada bagian Apache
-klik Config -> PHP.ini :
+Selanjutnya, kalian dapat mencari ekstensi yang diperlukan. Jika ada ekstensi yang belum aktif, kalian bisa mengaktifkannya melalui XAMPP Control Panel. Pada bagian Apache, klik Config lalu pilih PHP.ini.
 
 
 ![xampp](https://github.com/user-attachments/assets/366e5646-19d9-46ba-8352-8f40df7f62cc)
 
 
 <img width="675" alt="cmd1" src="https://github.com/user-attachments/assets/2fe0daf6-9de8-4cd7-84f6-02234cb6aba6" />
-* Contohnya disini extension=intl belum aktif, maka cara mengaktivasinya adalah dengan menghilangkan tanda ; (titik koma) pada ekstensi yang akan diaktifkan. Kemudian simpan kembali filenya dan restart Apache web server.
+* Sebagai contoh, jika ekstensi extension=intl belum aktif, cara mengaktifkannya adalah dengan menghapus tanda titik koma (;) di depan nama ekstensi tersebut. Setelah itu, simpan file tersebut dan lakukan restart pada Apache web server.
 
 ## Instalasi Codeigniter 4
 Untuk melakukan instalasi Codeigniter 4 dapat dilakukan dengan dua cara, yaitu cara manual
@@ -61,10 +63,10 @@ Perintah yang dapat dijalankan untuk memanggil CLI Codeigniter adalah:
 <img width="676" alt="spark" src="https://github.com/user-attachments/assets/9b879a64-160b-46b3-bfe8-8ef7b1a1ae45" />
 
 ## Mengaktifkan Mode Debugging
-Codeigniter 4 menyediakan fitur debugging untuk memudahkan developer untuk mengetahui pesan error apabila terjadi kesalahan dalam membuat kode program.
 
-Secara default fitur ini belum aktif. Ketika terjadi error pada aplikasi akan ditampilkan pesan kesalahan seperti berikut.
+CodeIgniter 4 memiliki fitur debugging yang berguna untuk membantu developer dalam melihat pesan error ketika terjadi kesalahan dalam penulisan kode program.
 
+Secara bawaan, fitur ini belum diaktifkan. Saat terjadi error pada aplikasi, akan muncul pesan kesalahan seperti contoh berikut.
 
 ![WhatsApp Image 2025-03-13 at 14 41 11](https://github.com/user-attachments/assets/d85309b9-a6d5-402b-bbab-0aab9ef76ece)
 
@@ -88,24 +90,24 @@ app/Controller/Home.php hilangkan titik koma pada akhir kode return view('welcom
 ![coba](https://github.com/user-attachments/assets/0cf96233-3011-4419-96b5-996d0c1c8e54)
 
 ## Memahami konsep MVC
-Codeigniter menggunakan konsep MVC. MVC meripakan singkatan dari Model-View-
-Controller. MVC merupakan konsep arsitektur yang umum digunakan dalam pengembangan aplikasi. Konsep MVC adalah memisahkan kode program berdasarkan logic proses, data, dan
-tampilan. Untuk logic proses diletakkan pada direktori Contoller, Objek data diletakkan pada direktori Model, dan desain tampilan diletakkan pada direktori View.
+CodeIgniter mengadopsi konsep MVC, yang merupakan singkatan dari Model-View-Controller. MVC adalah pola arsitektur yang banyak digunakan dalam pengembangan aplikasi. Tujuan utama dari konsep ini adalah memisahkan kode program berdasarkan proses logika, pengelolaan data, dan tampilan.
+Logika proses ditempatkan di dalam direktori Controller, data dikelola melalui direktori Model, dan tampilan desain antarmuka diletakkan pada direktori View.
 
-Codeigniter menggunakan konsep pemrograman berorientasi objek dalam mengimplementasikan konsep MVC.
+CodeIgniter menerapkan paradigma object-oriented programming (OOP) dalam penerapan konsep MVC ini.
 
-Model merupakan kode program yang berisi pemodelan data. Data dapat berupa database ataupun sumber lainnya.
+Model berisi kode program yang merepresentasikan pemodelan data. Data tersebut bisa berasal dari database maupun sumber lainnya.
 
-View merupakan kode program yang berisi bagian yang menangani terkait tampilan user interface sebuah aplikasi. didalam aplikasi web biasanya pasti akan berhubungan dengan html dan css.
+View merupakan bagian kode yang mengatur tampilan antarmuka pengguna. Dalam aplikasi web, bagian ini umumnya berkaitan dengan HTML dan CSS.
 
-Controller merupakaan kode program yang berkaitan dengan logic proses yang menghubungkan antara view dan model. Controller berfungsi untuk menerima request dan data dari user kemudian diproses dengan menghubungkan bagian model dan view.
+Controller adalah bagian kode yang mengatur logika proses serta menjembatani antara View dan Model. Fungsinya adalah menerima request dan data dari pengguna, lalu memprosesnya dengan melibatkan Model dan View.
 
 ## Routing dan Controller
-Routing merupakan proses yang mengatur arah atau rute dari request untuk menentukan fungsi/bagian mana yang akan memproses request tersebut. Pada framework CI4, routing bertujuan untuk menentukan Controller mana yang harus merespon sebuah request. Controller
-adalah class atau script yang bertanggung jawab merespon sebuah request.
+Routing adalah proses pengaturan jalur atau rute dari sebuah request untuk menentukan bagian mana dari aplikasi yang akan menanganinya. Dalam framework CodeIgniter 4, routing digunakan untuk menentukan Controller mana yang akan merespons suatu request.
+Controller sendiri adalah class atau script yang memiliki tanggung jawab dalam menangani request tersebut.
 
-Pada Codeigniter, request yang diterima oleh file index.php akan diarahkan ke Router untuk
-meudian oleh router tesebut diarahkan ke Controller.
+Di CodeIgniter, setiap request yang masuk melalui file index.php akan diteruskan ke Router. Selanjutnya, Router akan mengarahkan request tersebut ke Controller yang sesuai.
+
+File konfigurasi Router dapat ditemukan di: app/Config/Routes.php.
 
 Router terletak pada file app/config/Routes.php
 ![Routes](https://github.com/user-attachments/assets/59e66513-f7ad-4bf0-a3ef-83e6e701639e)
@@ -134,7 +136,8 @@ Selanjutnya coba akses route yang telah dibuat dengan mengakses alamat url http:
 
 ![404](https://github.com/user-attachments/assets/4d45c2c3-a64e-4017-b0fa-25db27815f13)
 
-Ketika diakses akan mucul tampilan error 404 file not found, itu artinya file/page tersebut tidak ada. Untuk dapat mengakses halaman tersebut, harus dibuat terlebih dahulu Contoller yang sesuai dengan routing yang dibuat yaitu Contoller Page.
+Ketika halaman diakses namun muncul pesan error 404 file not found, itu berarti file atau halaman yang diminta tidak tersedia. Agar halaman tersebut dapat diakses, perlu dibuat terlebih dahulu Controller yang sesuai dengan routing yang telah ditentukan, yaitu Controller dengan nama Page.
+
 
 #### Membuat Controller
 Selanjutnya adalah membuat Controller Page. Buat file baru dengan nama page.php pada direktori Controller kemudian isi kodenya seperti berikut.
@@ -221,7 +224,7 @@ Kemudian lakukan refresh pada halaman tersebut.
 ![About2 (1)](https://github.com/user-attachments/assets/d2a6c9fa-ee7a-45cf-8788-a6d638e2ec10)
 
 ### Membuat Layout Web dengan CSS
-Pada dasarnya layout web dengan css dapat diimplamentasikan dengan mudah pada codeigniter. Yang perlu diketahui adalah, pada Codeigniter 4 file yang menyimpan asset css dan javascript terletak pada direktori public.
+Pada dasarnya, penerapan layout web menggunakan CSS dapat dilakukan dengan mudah di CodeIgniter. Hal yang perlu diperhatikan adalah bahwa pada CodeIgniter 4, file yang berisi aset seperti CSS dan JavaScript disimpan di dalam direktori public.
 
 Buat file css pada direktori public dengan nama style.css
 
