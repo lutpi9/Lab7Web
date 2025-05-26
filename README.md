@@ -534,6 +534,7 @@ Selanjutnya buat view untuk tampilan admin dengan nama admin_index.php
 ```
 
 Tambahkan routing untuk menu admin seperti berikut:
+
 ```
 $routes->group('admin', function($routes) {
     $routes->get('artikel', 'Artikel::admin_index');
@@ -541,6 +542,7 @@ $routes->group('admin', function($routes) {
     $routes->add('artikel/edit/(:any)', 'Artikel::edit/$1');
     $routes->get('artikel/delete/(:any)', 'Artikel::delete/$1');
 });
+
 ```
 
 
