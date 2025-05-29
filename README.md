@@ -352,7 +352,7 @@ CREATE TABLE artikel (
 - Selanjutnya adalah membuat Model untuk memproses data Artikel. Buat file baru pada direktori app/Models dengan nama ArtikelModel.php
 
 
-  ```
+  ````php
   <?php
 namespace App\Models;
 
@@ -365,13 +365,13 @@ class ArtikelModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = ['judul', 'isi', 'status', 'slug', 'gambar'];
 }
-```
+````
 
 
 # Membuat Controller
 - Buat Controller baru dengan nama Artikel.php pada direktori app/Controllers.
 
-```
+````
 <?php
 
 namespace App\Controllers;
@@ -388,7 +388,7 @@ class Artikel extends BaseController
         return view('artikel/index', compact('artikel', 'title'));
     }
 }
-```
+````
 
 # Membuat View
 - Buat direktori baru dengan nama artikel pada direktori app/views, kemudian buat file baru dengan nama index.php.
