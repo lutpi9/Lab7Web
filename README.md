@@ -352,7 +352,7 @@ CREATE TABLE artikel (
 - Selanjutnya adalah membuat Model untuk memproses data Artikel. Buat file baru pada direktori app/Models dengan nama ArtikelModel.php
 
 
-  ````php
+  ```php
   <?php
 namespace App\Models;
 
@@ -365,7 +365,7 @@ class ArtikelModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = ['judul', 'isi', 'status', 'slug', 'gambar'];
 }
-````
+```
 
 
 # Membuat Controller
