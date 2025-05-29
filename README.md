@@ -352,8 +352,8 @@ CREATE TABLE artikel (
 - Selanjutnya adalah membuat Model untuk memproses data Artikel. Buat file baru pada direktori app/Models dengan nama ArtikelModel.php
 
 
-  ```php
-  <?php
+```php
+<?php
 namespace App\Models;
 
 use CodeIgniter\Model;
@@ -365,13 +365,13 @@ class ArtikelModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = ['judul', 'isi', 'status', 'slug', 'gambar'];
 }
-```
+
 
 
 # Membuat Controller
 - Buat Controller baru dengan nama Artikel.php pada direktori app/Controllers.
 
-````
+```
 <?php
 
 namespace App\Controllers;
@@ -388,10 +388,12 @@ class Artikel extends BaseController
         return view('artikel/index', compact('artikel', 'title'));
     }
 }
-````
+```
 
 # Membuat View
 - Buat direktori baru dengan nama artikel pada direktori app/views, kemudian buat file baru dengan nama index.php.
+
+
 ```
 <?= $this->include('template/header'); ?>
 
@@ -412,6 +414,7 @@ class Artikel extends BaseController
 <?= $this->include('template/footer'); ?>
 ```
 
+
 Selanjutnya buka browser kembali, dengan mengakses url http://localhost:8080/artikel
 
 ![view_1](https://github.com/user-attachments/assets/d26e459b-ffbe-4f2b-855a-220f04a57381)
@@ -431,6 +434,7 @@ Lakukan refresh pada browser untuk menampilkan hasilnya.
 
 Saat judul berita diklik, pengguna akan diarahkan ke halaman yang berbeda. Untuk itu, tambahkan sebuah fungsi baru pada Controller Artikel dengan nama view().
 
+
 ```
 public function view($slug)
 {
@@ -449,6 +453,7 @@ public function view($slug)
     return view('artikel/detail', compact('artikel', 'title'));
 }
 ```
+
 
 # Membuat View Detail
 - Buat view baru untuk halaman detail dengan nama app/views/artikel/detail.php.
