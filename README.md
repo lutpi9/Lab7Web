@@ -365,13 +365,13 @@ class ArtikelModel extends Model
     protected $useAutoIncrement = true;
     protected $allowedFields = ['judul', 'isi', 'status', 'slug', 'gambar'];
 }
-
+```
 
 
 # Membuat Controller
 - Buat Controller baru dengan nama Artikel.php pada direktori app/Controllers.
 
-```
+```php
 <?php
 
 namespace App\Controllers;
@@ -394,7 +394,7 @@ class Artikel extends BaseController
 - Buat direktori baru dengan nama artikel pada direktori app/views, kemudian buat file baru dengan nama index.php.
 
 
-```
+```php
 <?= $this->include('template/header'); ?>
 
 <?php if($artikel): foreach($artikel as $row): ?>
@@ -422,11 +422,11 @@ Selanjutnya buka browser kembali, dengan mengakses url http://localhost:8080/art
 
 Belum ada data yang diampilkan. Kemudian coba tambahkan beberapa data pada database agar dapat ditampilkan datanya.
 
-```
+```php
 INSERT INTO artikel (judul, isi, slug) VALUE
 ('Artikel pertama', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil sebuah kumpulan teks dan mengacaknya untuk menjadi sebuah buku contoh huruf.','artikel-pertama'),
 ('Artikel kedua', 'Tidak seperti anggapan banyak orang, Lorem Ipsum bukanlah teks-teks yang diacak. Ia berakar dari sebuah naskah sastra latin klasik dari era 45 sebelum masehi, hingga bisa dipastikan usianya telah mencapai lebih dari 2000 tahun.', 'artikel-kedua');
-```
+```php
 
 Lakukan refresh pada browser untuk menampilkan hasilnya.
 
