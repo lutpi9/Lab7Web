@@ -208,6 +208,8 @@ Selanjutnya adalam membuat view untuk tampilan web agar lebih menarik. Buat file
 ````
 
 Ubah method about pada class Controller Page menjadi seperti berikut:
+
+
 ``` python
     public function about()
     {
@@ -426,7 +428,7 @@ Belum ada data yang diampilkan. Kemudian coba tambahkan beberapa data pada datab
 INSERT INTO artikel (judul, isi, slug) VALUE
 ('Artikel pertama', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil sebuah kumpulan teks dan mengacaknya untuk menjadi sebuah buku contoh huruf.','artikel-pertama'),
 ('Artikel kedua', 'Tidak seperti anggapan banyak orang, Lorem Ipsum bukanlah teks-teks yang diacak. Ia berakar dari sebuah naskah sastra latin klasik dari era 45 sebelum masehi, hingga bisa dipastikan usianya telah mencapai lebih dari 2000 tahun.', 'artikel-kedua');
-```php
+```
 
 Lakukan refresh pada browser untuk menampilkan hasilnya.
 
@@ -435,7 +437,7 @@ Lakukan refresh pada browser untuk menampilkan hasilnya.
 Saat judul berita diklik, pengguna akan diarahkan ke halaman yang berbeda. Untuk itu, tambahkan sebuah fungsi baru pada Controller Artikel dengan nama view().
 
 
-```
+```php
 public function view($slug)
 {
     $model = new ArtikelModel();
@@ -458,7 +460,7 @@ public function view($slug)
 # Membuat View Detail
 - Buat view baru untuk halaman detail dengan nama app/views/artikel/detail.php.
 
-```
+```php
 <?= $this->include('template/header'); ?>
 
 <article class="entry">
@@ -474,7 +476,7 @@ $artikel['judul']; ?>">
 # Membuat Routing untuk artikel detail
 - Buka Kembali file app/config/Routes.php, kemudian tambahkan routing untuk artikel detail.
 
-```
+```php
 $routes->get('/artikel/(:any)', 'Artikel::view/$1');
 ```
 
@@ -484,7 +486,7 @@ $routes->get('/artikel/(:any)', 'Artikel::view/$1');
 # Membuat menu admin
 - Menu admin adalah untuk proses CRUD data artikel. Buat method baru pada Controller Artikel dengan nama admin_index().
 
-```
+```php
 public function admin_index()
 {
     $title = 'Daftar Artikel';
@@ -496,7 +498,7 @@ public function admin_index()
 
 Selanjutnya buat view untuk tampilan admin dengan nama admin_index.php
 
-```
+```php
 <?= $this->include('template/admin_header'); ?>
 
 <table class="table">
@@ -543,7 +545,7 @@ Selanjutnya buat view untuk tampilan admin dengan nama admin_index.php
 
 Tambahkan routing untuk menu admin seperti berikut:
 
-```
+```php
 $routes->group('admin', function($routes) {
     $routes->get('artikel', 'Artikel::admin_index');
     $routes->add('artikel/add', 'Artikel::add');
