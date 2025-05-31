@@ -555,5 +555,121 @@ $routes->group('admin', function($routes) {
 
 ```
 
+akses menu admin dengan URL  http://localhost:8080/admin/artikel
+
+![admin_1](https://github.com/user-attachments/assets/6c4a4168-05d5-4d78-ac71-bc1743750c2e)
+
+# Menambah Data Artikel
+Tambahkan fungsi/method baru pada Controller Artikel dengan nama add().
+
+```php
+public function add()
+{
+    // validasi data.
+    $validation = \Config\Services::validation();
+    $validation->setRules(['judul' => 'required']);
+    $isDataValid = $validation->withRequest($this->request)->run();
+
+    if ($isDataValid)
+    {
+        $artikel = new ArtikelModel();
+        $artikel->insert([
+            'judul' => $this->request->getPost('judul'),
+            'isi' => $this->request->getPost('isi'),
+            'slug' => url_title($this->request->getPost('judul')),
+        ]);
+        return redirect('admin/artikel');
+    }
+    $title = "Tambah Artikel";
+    return view('artikel/form_add', compact('title'));
+}
+```
+
+Kemudian buat view untuk form tambah dengan nama form_add.php
+
+```php
+<?= $this->include('template/admin_header'); ?>
+
+<h2><?= $title; ?></h2>
+<form action="" method="post">
+    <p>
+        <input type="text" name="judul">
+    </p>
+    <p>
+        <textarea name="isi" cols="50" rows="10"></textarea>
+    </p>
+    <p><input type="submit" value="Kirim" class="btn btn-large"></p>
+</form>
+
+<?= $this->include('template/admin_footer'); ?>
+```
+
+![formadd1](https://github.com/user-attachments/assets/8429c420-8342-49ab-9f3e-71dcfb9bee51)
+
+# Mengubah Data
+Tambahkan fungsi/method baru pada Controller Artikel dengan nama edit().
+
+```php
+public function edit($id)
+{
+    $artikel = new ArtikelModel();
+
+    // validasi data.
+    $validation = \Config\Services::validation();
+    $validation->setRules(['judul' => 'required']);
+    $isDataValid = $validation->withRequest($this->request)->run();
+
+    if ($isDataValid)
+    {
+        $artikel->update($id, [
+            'judul' => $this->request->getPost('judul'),
+            'isi' => $this->request->getPost('isi'),
+        ]);
+        return redirect('admin/artikel');
+    }
+
+    // ambil data lama
+    $data = $artikel->where('id', $id)->first();
+    $title = "Edit Artikel";
+    return view('artikel/form_edit', compact('title', 'data'));
+}
+```
+
+Kemudian buat view untuk form tambah dengan nama form_edit.php
+
+```php
+<?= $this->include('template/admin_header'); ?>
+
+<h2><?= $title; ?></h2>
+<form action="" method="post">
+    <p>
+        <input type="text" name="judul" value="<?= $data['judul'];?>" >
+    </p>
+    <p>
+        <textarea name="isi" cols="50" rows="10"><?=$data['isi'];?></textarea>
+    </p>
+    <p><input type="submit" value="Kirim" class="btn btn-large"></p>
+</form>
+
+<?= $this->include('template/admin_footer'); ?>
+```
+
+![formedit_](https://github.com/user-attachments/assets/145b898f-1e58-4132-92df-db95418822f8)
+
+# Menghapus Data
+Tambahkan fungsi/method baru pada Controller Artikel dengan nama delete().
+
+```php
+public function delete($id)
+{
+    $artikel = new ArtikelModel();
+    $artikel->delete($id);
+    return redirect('admin/artikel');
+}
+```
+
+
+
+
 
   
