@@ -817,7 +817,7 @@ public function render($kategori = null)
 
     return view('components/artikel_terkini', ['artikel' => $artikel]);
 }
-
+```
 
     - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
