@@ -827,6 +827,7 @@ ALTER TABLE artikel ADD kategori VARCHAR(50);
 
 - Tambahkan argumen kategori pada method render():
 
+```
 public function render($kategori = null)
 {
     $model = new ArtikelModel();
@@ -840,7 +841,7 @@ public function render($kategori = null)
 
     return view('components/artikel_terkini', ['artikel' => $artikel]);
 }
-
+```
 
 - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
