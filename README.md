@@ -801,23 +801,23 @@ class ArtikelTerkini extends Cell
         ```
         ![(5)](https://github.com/user-attachments/assets/30d907d2-d5b1-49ad-a5b4-67246a19e1a0)
 
-        - Tambahkan argumen kategori pada method render.
-          
-        ```php
-        public function render($kategori = null)
-        {
-        $model = new ArtikelModel();
-        $query = $model->orderBy('created_at', 'DESC');
+        - Tambahkan argumen `kategori` pada method `render()`:
 
-        if ($kategori) {
+```php
+public function render($kategori = null)
+{
+    $model = new ArtikelModel();
+    $query = $model->orderBy('created_at', 'DESC');
+
+    if ($kategori) {
         $query->where('kategori', $kategori);
-        }
+    }
 
-        $artikel = $query->limit(5)->findAll();
+    $artikel = $query->limit(5)->findAll();
 
-        return view('components/artikel_terkini', ['artikel' => $artikel]);
-        }
-        ```
+    return view('components/artikel_terkini', ['artikel' => $artikel]);
+}
+
 
     - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
