@@ -17,10 +17,11 @@ Sebuah proyek dibangun dengan CodeIgniter Framework...
 ## Langkah-langkah Praktikum
 ## Persiapan
 Langkah-langkah Praktikum
-Sebelum memulai menggunakan Framework Codeigniter, perlu dilakukan konfigurasi pada
-webserver. Beberapa ekstensi PHP perlu diaktifkan untuk kebutuhan pengembangan
-Codeigniter 4.
+
+Sebelum memulai menggunakan Framework Codeigniter, perlu dilakukan konfigurasi pada webserver.
+Beberapa ekstensi PHP perlu diaktifkan untuk kebutuhan pengembangan Codeigniter 4.
 Berikut beberapa ekstensi yang perlu diaktifkan:
+
 • php-json ekstension untuk bekerja dengan JSON;
 • php-mysqlnd native driver untuk MySQL;
 • php-xml ekstension untuk bekerja dengan XML;
