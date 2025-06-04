@@ -821,33 +821,21 @@ class ArtikelTerkini extends Cell
 
     - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
-    - Modifikasi View Cell agar filter berdasarkan kategori Buka app/Cells/ArtikelTerkini.php, ubah fungsi render() jadi seperti ini:
-
+    - Modifikasi View Cell agar bisa filter berdasarkan kategori. Buka `app/Cells/ArtikelTerkini.php` dan ubah method `render()`:
 
     ```php
-<?php
-
-namespace App\Cells;
-
-use App\Models\ArtikelModel;
-
-class ArtikelTerkini
-{
     public function render($kategori = null)
     {
         $model = new ArtikelModel();
-
         $query = $model->orderBy('created_at', 'DESC')->limit(5);
         if ($kategori) {
             $query->where('kategori', $kategori);
         }
-
         $artikel = $query->findAll();
 
         return view('components/artikel_terkini', ['artikel' => $artikel]);
     }
-}
-```
+    ```
 
 
     - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
@@ -884,9 +872,7 @@ class ArtikelTerkini
 
 # *Screenshot Hasil*
 
- ![olahraga1](https://github.com/user-attachments/assets/f85a6e67-d45a-40ca-bafe-66fcc267bace)
 
-![teknologi2](https://github.com/user-attachments/assets/555707ef-dd4b-4545-b710-75c6856bcd73)
 
 
        
