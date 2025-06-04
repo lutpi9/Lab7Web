@@ -672,7 +672,7 @@ public function delete($id)
 # Praktikum 3: View Layout dan View Cell
 
 # Tujuan
-Setelah menyelesaikan praktikum ini, mahasiswa diharapkan dapat:
+
 1. Memahami konsep View Layout di CodeIgniter 4.
 2. Menggunakan View Layout untuk membuat template tampilan.
 3. Memahami dan mengimplementasikan View Cell dalam CodeIgniter 4.
@@ -795,11 +795,91 @@ class ArtikelTerkini extends Cell
 
    5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
       # Langkah:
-        Tambahkan kolom kategori pada tabel artikel.
+        - Tambahkan kolom kategori pada tabel artikel.
         ```
         ALTER TABLE artikel ADD kategori VARCHAR(50);
         ```
-        
+        ![(5)](https://github.com/user-attachments/assets/30d907d2-d5b1-49ad-a5b4-67246a19e1a0)
+
+        - Tambahkan argumen kategori pada method render.
+        ```
+        public function render($kategori = null)
+{
+    $model = new ArtikelModel();
+    $query = $model->orderBy('created_at', 'DESC');
+
+    if ($kategori) {
+        $query->where('kategori', $kategori);
+    }
+
+    $artikel = $query->limit(5)->findAll();
+
+    return view('components/artikel_terkini', ['artikel' => $artikel]);
+}
+```
+    - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
+    - Modifikasi View Cell agar filter berdasarkan kategori Buka app/Cells/ArtikelTerkini.php, ubah fungsi render() jadi seperti ini:
+    ```
+<?php
+
+namespace App\Cells;
+
+use App\Models\ArtikelModel;
+
+class ArtikelTerkini
+{
+    public function render($kategori = null)
+    {
+        $model = new ArtikelModel();
+
+        $query = $model->orderBy('created_at', 'DESC')->limit(5);
+        if ($kategori) {
+            $query->where('kategori', $kategori);
+        }
+
+        $artikel = $query->findAll();
+
+        return view('components/artikel_terkini', ['artikel' => $artikel]);
+    }
+}
+```
+    - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
+    ```
+    <?= view_cell('App\\Cells\\ArtikelTerkini::render', ['kategori' => 'Teknologi']) ?>
+    ```
+
+    - Tambahkan route agar URL seperti /kategori/teknologi bisa diakses:
+    ```
+    $routes->get('/kategori/(:segment)', 'Artikel::kategori/$1');
+    ```
+
+    - Tambah View-nya (app/Views/artikel/kategori.php)
+    ```
+    <?= $this->extend('layout/main') ?>
+<?= $this->section('content') ?>
+
+<h2><?= $title ?></h2>
+<ul>
+    <?php foreach ($artikel as $row): ?>
+        <li>
+            <a href="<?= base_url('/artikel/' . $row['slug']) ?>">
+                <?= esc($row['judul']) ?>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+<?= $this->endSection() ?>
+```
+
+# *Screenshot Hasil*
+
+ ![olahraga1](https://github.com/user-attachments/assets/f85a6e67-d45a-40ca-bafe-66fcc267bace)
+
+![teknologi2](https://github.com/user-attachments/assets/555707ef-dd4b-4545-b710-75c6856bcd73)
+
+
+       
 
 
 
