@@ -821,6 +821,7 @@ class ArtikelTerkini extends Cell
         ```
         ALTER TABLE artikel ADD kategori VARCHAR(50);
         ```
+  
         ![(5)](https://github.com/user-attachments/assets/2edd80c2-2199-4bd0-9416-fd9a4b12ea94)
 
 
