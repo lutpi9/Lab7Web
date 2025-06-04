@@ -823,7 +823,7 @@ class ArtikelTerkini extends Cell
 
     - Modifikasi View Cell agar bisa filter berdasarkan kategori. Buka `app/Cells/ArtikelTerkini.php` dan ubah method `render()`:
 
-    ```php
+    ```
     public function render($kategori = null)
     {
         $model = new ArtikelModel();
@@ -840,19 +840,19 @@ class ArtikelTerkini extends Cell
 
     - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
     
-    ```php
+    ```
     <?= view_cell('App\\Cells\\ArtikelTerkini::render', ['kategori' => 'Teknologi']) ?>
     ```
 
     - Tambahkan route agar URL seperti /kategori/teknologi bisa diakses:
     
-    ```php
+    ```
     $routes->get('/kategori/(:segment)', 'Artikel::kategori/$1');
     ```
 
     - Tambah View-nya (app/Views/artikel/kategori.php)
     
-    ```php
+    ```
     <?= $this->extend('layout/main') ?>
 <?= $this->section('content') ?>
 
@@ -870,8 +870,12 @@ class ArtikelTerkini extends Cell
 <?= $this->endSection() ?>
 ```
 
-# *Screenshot Hasil*
+# Screenshot Hasi
 
+![olahraga1](https://github.com/user-attachments/assets/fd3ea9d7-6cf6-4e30-927c-a2f9d2d9c796)
+
+
+![teknologi2](https://github.com/user-attachments/assets/a7ba9dc5-02d4-4207-bdb2-cff82258c096)
 
 
 
