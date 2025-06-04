@@ -786,12 +786,9 @@ class ArtikelTerkini extends Cell
     - Mengurangi pengulangan kode
 
  4. Jelaskan perbedaan antara View Cell dan View biasa.
-| Fitur          | View Layout                                     | View Cell                                                |
-|----------------|-------------------------------------------------|-----------------------------------------------------------|
-| Fungsi         | Template utama untuk struktur tampilan aplikasi | Komponen kecil yang dapat dipanggil di dalam view         |
-| Fleksibilitas  | Digunakan untuk keseluruhan halaman             | Digunakan untuk bagian kecil seperti sidebar atau widget  |
-| Pemakaian      | `extend()` dan `renderSection()`                | `view_cell()`                                             |
-| Contoh         | Struktur website lengkap                        | Widget pencarian, daftar artikel terbaru, dll             |
+⚖️ Perbandingan Fitur
+<div align="center">
+🔍 Aspek🏗️ View Layout🧩 View CellFitur UtamaTemplate master yang mengatur struktur tampilan keseluruhanKomponen modular yang bisa dipanggil dalam tampilanFungsi IntiMengorganisir layout dasar dengan section dan inheritanceMenyediakan widget atau komponen yang dapat digunakan ulangFleksibilitasDirancang untuk mengatur halaman secara menyeluruhDapat diintegrasikan dalam bagian kecil seperti sidebar atau widgetMetode Penggunaanextend() dan renderSection()view_cell()Skenario IdealLayout master website dengan header, footer, dan navigationDaftar artikel terkini, widget pencarian, komponen interaktifKompleksitasLebih terstruktur untuk arsitektur halaman besarLebih sederhana dan fokus pada fungsionalitas spesifikReusabilitasTemplate dapat diwariskan ke multiple viewKomponen dapat dipanggil dari berbagai lokasi
 
    5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
       # Langkah-Langkah:
