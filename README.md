@@ -791,8 +791,8 @@ class ArtikelTerkini extends Cell
 ```markdown
 
 
-| 🔍 **Aspek** | 🏗️ **View Layout** | 🧩 **View Cell** |
-|:-------------|:-------------------|:------------------|
+| 🔍 **Aspek** | 🏗️ **View Cell** | 🧩 **View Biasa** |
+|:-------------|:------------------|:------------------|
 | **Fitur Utama** | Template master yang mengatur struktur tampilan keseluruhan | Komponen modular yang bisa dipanggil dalam tampilan |
 | **Fungsi Inti** | Mengorganisir layout dasar dengan section dan inheritance | Menyediakan widget atau komponen yang dapat digunakan ulang |
 | **Fleksibilitas** | Dirancang untuk mengatur halaman secara menyeluruh | Dapat diintegrasikan dalam bagian kecil seperti sidebar atau widget |
