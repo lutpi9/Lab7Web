@@ -8,11 +8,9 @@ Sebuah proyek dibangun dengan CodeIgniter Framework...
 
 
 ## Profil
-|  |  |
-| -------- | --- |
-| **Nama** | Lutpiah Ainus Shiddik |
-| **Kelas** | TI.23.A.5 |
-| **Mata Kuliah** | Pemrograman Web 2 |
+| Nama | Kelas | NIM | Mata Kuliah | Dosen |
+|------|-------|-----|-------------|-------|
+| LUTPIAH AINUS SHIDDIK    |  TI.23.A.5     | 312310474    |    Pemograman web 2         |  Agung Nugroho, S.Kom., M.Kom.     |
 
 # Praktikum 1: PHP Framework (Codeigniter)
 
