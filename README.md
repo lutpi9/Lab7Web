@@ -669,6 +669,136 @@ public function delete($id)
 ```
 
 
+# Praktikum 3: View Layout dan View Cell
+
+# Tujuan
+Setelah menyelesaikan praktikum ini, mahasiswa diharapkan dapat:
+1. Memahami konsep View Layout di CodeIgniter 4.
+2. Menggunakan View Layout untuk membuat template tampilan.
+3. Memahami dan mengimplementasikan View Cell dalam CodeIgniter 4.
+4. Menggunakan View Cell untuk memanggil komponen UI secara modular.
+
+# Langkah-langkah Praktikum
+Persiapan
+1. Akses folder lab7_php_ci yang telah digunakan pada sesi praktikum sebelumnya.
+2. Gunakan editor teks seperti Visual Studio Code (VSCode) untuk membuka proyek tersebut.
+
+# Membuat Layout Utama
+Buat folder layout di dalam app/Views/
+Buat file main.php di dalam folder layout dengan kode berikut:
+
+Buat file main.php di dalam folder layout dengan kode berikut:
+
+```php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $title ?? 'My Website' ?></title>
+    <link rel="stylesheet" href="<?= base_url('/style.css');?>"> 
+</head>
+<body>
+    <div id="container">
+        <header><h1>Layout Sederhana</h1></header>
+        <nav>
+            <a href="<?= base_url('/');?>" class="active">Home</a>
+            <a href="<?= base_url('/artikel');?>">Artikel</a>
+            <a href="<?= base_url('/about');?>">About</a>
+            <a href="<?= base_url('/contact');?>">Kontak</a>
+        </nav>
+        <section id="wrapper">
+            <section id="main">
+                <?= $this->renderSection('content') ?>
+            </section>
+            <aside id="sidebar">
+                <?= view_cell('App\\Cells\\ArtikelTerkini::render') ?>
+                <!-- Widget lainnya -->
+            </aside>
+        </section>
+        <footer><p>&copy; 2021 - Universitas Pelita Bangsa</p></footer>
+    </div>
+</body>
+</html>
+```
+
+# Modifikasi File View
+Ubah app/Views/home.php agar sesuai dengan layout baru:
+```php
+<?= $this->extend('layout/main') ?>
+
+<?= $this->section('content') ?>
+<h1><?= $title; ?></h1>
+<hr>
+<p><?= $content; ?></p>
+
+<?= $this->endSection() ?>
+```
+
+View Cell merupakan fitur yang memungkinkan tampilan dipanggil dalam bentuk komponen terpisah yang dapat digunakan kembali. Fitur ini sangat sesuai untuk elemen-elemen yang sering tampil di banyak halaman, seperti menu navigasi, widget, atau sidebar.
+
+# Membuat class View Cell
+- Buat folder Cells di dalam app/.
+- Buat file ArtikelTerkini.php di dalam app/Cells/ dengan kode berikut:
+
+```php
+namespace App\Cells;
+
+use CodeIgniter\View\Cell;
+use App\Models\ArtikelModel;
+
+class ArtikelTerkini extends Cell
+{
+    public function render()
+    {
+        $model = new ArtikelModel();
+        $artikel = $model->orderBy('created_at', 'DESC')->limit(5)->findAll();
+        return view('components/artikel_terkini', ['artikel' => $artikel]);
+    }
+}
+```
+# Membuat View untuk View Cell
+- Buat folder components di dalam app/Views/.
+- Buat file artikel_terkini.php:
+
+```php
+<h3>Artikel Terkini</h3>
+<ul>
+<?php foreach ($artikel as $row): ?>
+    <li><a href="<?= base_url('/artikel/' . $row['slug']) ?>"><?= $row['judul'] ?></a></li>
+<?php endforeach; ?>
+</ul>
+```
+
+# *Pertanyaan dan Tugas*
+1. Sesuaikan data dengan praktikum sebelumnya, perlu melakukan perubahan field pada database dengan menambahkan tanggal agar dapat mengambil data artikel terbaru.
+   ```
+   ALTER TABLE artikel ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+   ```
+   ![(1)](https://github.com/user-attachments/assets/f52c4be6-9116-4bf6-9312-7ec3160a4b26)
+
+2. Selesaikan programnya sesuai Langkah-langkah yang ada. Anda boleh melakukan improvisasi.
+   
+3.  Apa manfaat utama dari penggunaan View Layout dalam pengembangan aplikasi?
+    View Layout menyediakan metode untuk membangun struktur tampilan yang seragam di seluruh bagian aplikasi. Dengan menggunakan layout, kita cukup membuat satu file sebagai kerangka utama HTML (berisi elemen seperti         header, sidebar, dan footer), lalu konten tiap halaman dapat disisipkan ke dalam kerangka tersebut. Keuntungannya antara lain:
+    - Menghemat waktu pengembangan
+    - Mempermudah pengelolaan tampilan
+    - Mengurangi pengulangan kode
+
+ 4. Jelaskan perbedaan antara View Cell dan View biasa.
+    | Fitur           | View Layout                                      | View Cell                                               |
+|----------------|--------------------------------------------------|----------------------------------------------------------|
+| Fungsi         | Template utama untuk struktur tampilan aplikasi  | Komponen kecil yang dapat dipanggil di dalam view        |
+| Fleksibilitas  | Digunakan untuk keseluruhan halaman              | Digunakan untuk bagian kecil seperti sidebar atau widget |
+| Pemakaian      | `extend()` dan `renderSection()`                 | `view_cell()`                                            |
+| Contoh         | Struktur website lengkap                         | Widget pencarian, daftar artikel terbaru, dll            |
+
+   5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
+      # Langkah:
+        Tambahkan kolom kategori pada tabel artikel.
+        ```
+        ALTER TABLE artikel ADD kategori VARCHAR(50);
+        ```
+
 
 
 
