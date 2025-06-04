@@ -819,7 +819,7 @@ public function render($kategori = null)
 }
 ```
 
-    - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
+- Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
 - Modifikasi View Cell agar bisa filter berdasarkan kategori. Buka `app/Cells/ArtikelTerkini.php` dan ubah method `render()`:
 
