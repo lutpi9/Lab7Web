@@ -779,18 +779,19 @@ class ArtikelTerkini extends Cell
 2. Selesaikan programnya sesuai Langkah-langkah yang ada. Anda boleh melakukan improvisasi.
    
 3.  Apa manfaat utama dari penggunaan View Layout dalam pengembangan aplikasi?
+   
     View Layout menyediakan metode untuk membangun struktur tampilan yang seragam di seluruh bagian aplikasi. Dengan menggunakan layout, kita cukup membuat satu file sebagai kerangka utama HTML (berisi elemen seperti         header, sidebar, dan footer), lalu konten tiap halaman dapat disisipkan ke dalam kerangka tersebut. Keuntungannya antara lain:
     - Menghemat waktu pengembangan
     - Mempermudah pengelolaan tampilan
     - Mengurangi pengulangan kode
 
  4. Jelaskan perbedaan antara View Cell dan View biasa.
-    | Fitur           | View Layout                                      | View Cell                                               |
-|----------------|--------------------------------------------------|----------------------------------------------------------|
-| Fungsi         | Template utama untuk struktur tampilan aplikasi  | Komponen kecil yang dapat dipanggil di dalam view        |
-| Fleksibilitas  | Digunakan untuk keseluruhan halaman              | Digunakan untuk bagian kecil seperti sidebar atau widget |
-| Pemakaian      | `extend()` dan `renderSection()`                 | `view_cell()`                                            |
-| Contoh         | Struktur website lengkap                         | Widget pencarian, daftar artikel terbaru, dll            |
+| Fitur          | View Layout                                     | View Cell                                                |
+|----------------|-------------------------------------------------|-----------------------------------------------------------|
+| Fungsi         | Template utama untuk struktur tampilan aplikasi | Komponen kecil yang dapat dipanggil di dalam view         |
+| Fleksibilitas  | Digunakan untuk keseluruhan halaman             | Digunakan untuk bagian kecil seperti sidebar atau widget  |
+| Pemakaian      | `extend()` dan `renderSection()`                | `view_cell()`                                             |
+| Contoh         | Struktur website lengkap                        | Widget pencarian, daftar artikel terbaru, dll             |
 
    5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
       # Langkah:
@@ -798,7 +799,7 @@ class ArtikelTerkini extends Cell
         ```
         ALTER TABLE artikel ADD kategori VARCHAR(50);
         ```
-
+        
 
 
 
