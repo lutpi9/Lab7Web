@@ -795,7 +795,7 @@ class ArtikelTerkini extends Cell
 
    5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
       # Langkah:
-        - Tambahkan kolom kategori pada tabel artikel.
+      - Tambahkan kolom kategori pada tabel artikel.
         ```
         ALTER TABLE artikel ADD kategori VARCHAR(50);
         ```
