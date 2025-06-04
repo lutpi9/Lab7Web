@@ -817,8 +817,11 @@ class ArtikelTerkini extends Cell
     return view('components/artikel_terkini', ['artikel' => $artikel]);
 }
 ```
+
     - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
     - Modifikasi View Cell agar filter berdasarkan kategori Buka app/Cells/ArtikelTerkini.php, ubah fungsi render() jadi seperti ini:
+
+
     ```
 <?php
 
@@ -843,17 +846,22 @@ class ArtikelTerkini
     }
 }
 ```
+
+
     - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
+    
     ```
     <?= view_cell('App\\Cells\\ArtikelTerkini::render', ['kategori' => 'Teknologi']) ?>
     ```
 
     - Tambahkan route agar URL seperti /kategori/teknologi bisa diakses:
+    
     ```
     $routes->get('/kategori/(:segment)', 'Artikel::kategori/$1');
     ```
 
     - Tambah View-nya (app/Views/artikel/kategori.php)
+    
     ```
     <?= $this->extend('layout/main') ?>
 <?= $this->section('content') ?>
