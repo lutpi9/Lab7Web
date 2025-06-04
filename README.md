@@ -817,10 +817,9 @@ class ArtikelTerkini extends Cell
       # Langkah-Langkah:
 - Tambahkan kolom kategori pada tabel artikel.
 
-  
-        ```
-        ALTER TABLE artikel ADD kategori VARCHAR(50);
-        ```
+```sql
+ALTER TABLE artikel ADD kategori VARCHAR(50);
+
   
         ![(5)](https://github.com/user-attachments/assets/2edd80c2-2199-4bd0-9416-fd9a4b12ea94)
 
