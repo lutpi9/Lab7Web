@@ -795,13 +795,13 @@ class ArtikelTerkini extends Cell
 
    5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
       # Langkah:
-      - Tambahkan kolom kategori pada tabel artikel.
+- Tambahkan kolom kategori pada tabel artikel.
         ```
         ALTER TABLE artikel ADD kategori VARCHAR(50);
         ```
         ![(5)](https://github.com/user-attachments/assets/30d907d2-d5b1-49ad-a5b4-67246a19e1a0)
 
-        - Tambahkan argumen `kategori` pada method `render()`:
+  - Tambahkan argumen `kategori` pada method `render()`:
 
 ```php
 public function render($kategori = null)
@@ -819,7 +819,7 @@ public function render($kategori = null)
 }
 ```
 
-        - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
+- Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
 - Modifikasi View Cell agar bisa filter berdasarkan kategori. Buka `app/Cells/ArtikelTerkini.php` dan ubah method `render()`:
 
