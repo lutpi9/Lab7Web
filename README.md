@@ -1,8 +1,7 @@
 # Pertemuan ke 1-3 
-```markdown
 ![PHP](https://img.shields.io/badge/PHP-8.0+-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![CodeIgniter](https://img.shields.io/badge/CodeIgniter-4.x-EF4223?style=for-the-badge&logo=codeigniter&logoColor=white)
-```
+
 
 ## Profil
 |  |  |
