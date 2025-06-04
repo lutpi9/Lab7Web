@@ -770,25 +770,25 @@ class ArtikelTerkini extends Cell
 ```
 
 # *Pertanyaan dan Tugas*
-1. Sesuaikan data dengan praktikum sebelumnya, perlu melakukan perubahan field pada database dengan menambahkan tanggal agar dapat mengambil data artikel terbaru.
+# 1. Sesuaikan data dengan praktikum sebelumnya, perlu melakukan perubahan field pada database dengan menambahkan tanggal agar dapat mengambil data artikel terbaru.
    ```
    ALTER TABLE artikel ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
    ```
    ![(1)](https://github.com/user-attachments/assets/f52c4be6-9116-4bf6-9312-7ec3160a4b26)
-
-2. Selesaikan programnya sesuai Langkah-langkah yang ada. Anda boleh melakukan improvisasi.
    
-3.  Apa manfaat utama dari penggunaan View Layout dalam pengembangan aplikasi?
+# 2. Selesaikan programnya sesuai Langkah-langkah yang ada. Anda boleh melakukan improvisasi.
+   
+# 3.  Apa manfaat utama dari penggunaan View Layout dalam pengembangan aplikasi?
    
     View Layout menyediakan metode untuk membangun struktur tampilan yang seragam di seluruh bagian aplikasi. Dengan menggunakan layout, kita cukup membuat satu file sebagai kerangka utama HTML (berisi elemen seperti         header, sidebar, dan footer), lalu konten tiap halaman dapat disisipkan ke dalam kerangka tersebut. Keuntungannya antara lain:
     - Menghemat waktu pengembangan
     - Mempermudah pengelolaan tampilan
     - Mengurangi pengulangan kode
 
- 4. Jelaskan perbedaan antara View Cell dan View biasa.
+# 4. Jelaskan perbedaan antara View Cell dan View biasa.
 ## Tabel Perbandingan Utama
 
-| **Aspek** | **View Cell** | **View Biasa** |
+| 🔍 **Aspek** | 🏗️**View Cell** | 🧩**View Biasa** |
 | --- | --- | --- |
 | **Fitur Utama** | Template master yang mengatur struktur tampilan keseluruhan | Komponen modular yang bisa dipanggil dalam tampilan |
 | **Fungsi Inti** | Mengorganisir layout dasar dengan section dan inheritance | Menyediakan widget atau komponen yang dapat digunakan ulang |
@@ -800,7 +800,7 @@ class ArtikelTerkini extends Cell
 
 
 
-   5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
+ # 5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
       # Langkah-Langkah:
 - Tambahkan kolom kategori pada tabel artikel.
 
