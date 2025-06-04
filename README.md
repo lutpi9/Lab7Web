@@ -794,8 +794,10 @@ class ArtikelTerkini extends Cell
 | Contoh         | Struktur website lengkap                        | Widget pencarian, daftar artikel terbaru, dll             |
 
    5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
-      # Langkah:
+      # Langkah-Langkah:
 - Tambahkan kolom kategori pada tabel artikel.
+
+  
         ```
         ALTER TABLE artikel ADD kategori VARCHAR(50);
         ```
@@ -825,16 +827,18 @@ public function render($kategori = null)
 
     ```php
     public function render($kategori = null)
-    {
-        $model = new ArtikelModel();
-        $query = $model->orderBy('created_at', 'DESC')->limit(5);
-        if ($kategori) {
-            $query->where('kategori', $kategori);
-        }
-        $artikel = $query->findAll();
+{
+    $model = new ArtikelModel();
+    $query = $model->orderBy('created_at', 'DESC');
 
-        return view('components/artikel_terkini', ['artikel' => $artikel]);
+    if ($kategori) {
+        $query->where('kategori', $kategori);
     }
+
+    $artikel = $query->limit(5)->findAll();
+
+    return view('components/artikel_terkini', ['artikel' => $artikel]);
+}
     ```
 
 - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
