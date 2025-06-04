@@ -802,7 +802,8 @@ class ArtikelTerkini extends Cell
         ![(5)](https://github.com/user-attachments/assets/30d907d2-d5b1-49ad-a5b4-67246a19e1a0)
 
         - Tambahkan argumen kategori pada method render.
-        ```
+          
+        ```php
         public function render($kategori = null)
 {
     $model = new ArtikelModel();
@@ -819,10 +820,11 @@ class ArtikelTerkini extends Cell
 ```
 
     - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
+
     - Modifikasi View Cell agar filter berdasarkan kategori Buka app/Cells/ArtikelTerkini.php, ubah fungsi render() jadi seperti ini:
 
 
-    ```
+    ```php
 <?php
 
 namespace App\Cells;
@@ -850,19 +852,19 @@ class ArtikelTerkini
 
     - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
     
-    ```
+    ```php
     <?= view_cell('App\\Cells\\ArtikelTerkini::render', ['kategori' => 'Teknologi']) ?>
     ```
 
     - Tambahkan route agar URL seperti /kategori/teknologi bisa diakses:
     
-    ```
+    ```php
     $routes->get('/kategori/(:segment)', 'Artikel::kategori/$1');
     ```
 
     - Tambah View-nya (app/Views/artikel/kategori.php)
     
-    ```
+    ```php
     <?= $this->extend('layout/main') ?>
 <?= $this->section('content') ?>
 
