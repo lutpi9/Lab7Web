@@ -805,19 +805,19 @@ class ArtikelTerkini extends Cell
           
         ```
         public function render($kategori = null)
-{
-    $model = new ArtikelModel();
-    $query = $model->orderBy('created_at', 'DESC');
+        {
+        $model = new ArtikelModel();
+        $query = $model->orderBy('created_at', 'DESC');
 
-    if ($kategori) {
+        if ($kategori) {
         $query->where('kategori', $kategori);
-    }
+        }
 
-    $artikel = $query->limit(5)->findAll();
+        $artikel = $query->limit(5)->findAll();
 
-    return view('components/artikel_terkini', ['artikel' => $artikel]);
-}
-```
+        return view('components/artikel_terkini', ['artikel' => $artikel]);
+        }
+        ```
 
     - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
