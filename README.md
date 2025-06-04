@@ -801,7 +801,7 @@ class ArtikelTerkini extends Cell
         ```
         ![(5)](https://github.com/user-attachments/assets/30d907d2-d5b1-49ad-a5b4-67246a19e1a0)
 
-  - Tambahkan argumen `kategori` pada method `render()`:
+- Tambahkan argumen `kategori` pada method `render()`:
 
 ```php
 public function render($kategori = null)
