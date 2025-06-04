@@ -803,7 +803,7 @@ class ArtikelTerkini extends Cell
 
         - Tambahkan argumen kategori pada method render.
           
-        ```php
+        ```
         public function render($kategori = null)
 {
     $model = new ArtikelModel();
