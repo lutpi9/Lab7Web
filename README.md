@@ -825,21 +825,21 @@ public function render($kategori = null)
 
 - Modifikasi View Cell agar bisa filter berdasarkan kategori. Buka `app/Cells/ArtikelTerkini.php` dan ubah method `render()`:
 
-    ```php
-    public function render($kategori = null)
+```php
+public function render($kategori = null)
 {
     $model = new ArtikelModel();
-    $query = $model->orderBy('created_at', 'DESC');
+    $query = $model->orderBy('created_at', 'DESC')->limit(5);
 
     if ($kategori) {
         $query->where('kategori', $kategori);
     }
 
-    $artikel = $query->limit(5)->findAll();
+    $artikel = $query->findAll();
 
     return view('components/artikel_terkini', ['artikel' => $artikel]);
 }
-    ```
+```
 
 - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
 
