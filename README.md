@@ -788,21 +788,17 @@ class ArtikelTerkini extends Cell
  4. Jelaskan perbedaan antara View Cell dan View biasa.
 ## Tabel Perbandingan Utama
 
-```markdown
-
-
-| 🔍 **Aspek** | 🏗️ **View Cell** | 🧩 **View Biasa** |
-|:-------------|:------------------|:------------------|
+| **Aspek** | **View Cell** | **View Biasa** |
+| --- | --- | --- |
 | **Fitur Utama** | Template master yang mengatur struktur tampilan keseluruhan | Komponen modular yang bisa dipanggil dalam tampilan |
 | **Fungsi Inti** | Mengorganisir layout dasar dengan section dan inheritance | Menyediakan widget atau komponen yang dapat digunakan ulang |
 | **Fleksibilitas** | Dirancang untuk mengatur halaman secara menyeluruh | Dapat diintegrasikan dalam bagian kecil seperti sidebar atau widget |
 | **Metode Penggunaan** | `extend()` dan `renderSection()` | `view_cell()` |
-| **Skenario Ideal** | Layout master website dengan header, footer, dan navigation | Daftar artikel terkini, widget pencarian, komponen interaktif |
+| **Skenario Ideal** | Layout master website dengan header footer dan navigation | Daftar artikel terkini widget pencarian komponen interaktif |
 | **Kompleksitas** | Lebih terstruktur untuk arsitektur halaman besar | Lebih sederhana dan fokus pada fungsionalitas spesifik |
 | **Reusabilitas** | Template dapat diwariskan ke multiple view | Komponen dapat dipanggil dari berbagai lokasi |
 
 
-```
 
    5. Ubah View Cell agar hanya menampilkan post dengan kategori tertentu.
       # Langkah-Langkah:
