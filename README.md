@@ -820,13 +820,13 @@ class ArtikelTerkini extends Cell
 ```sql
 ALTER TABLE artikel ADD kategori VARCHAR(50);
 
+
   
-        ![(5)](https://github.com/user-attachments/assets/2edd80c2-2199-4bd0-9416-fd9a4b12ea94)
+ ![(5)](https://github.com/user-attachments/assets/2edd80c2-2199-4bd0-9416-fd9a4b12ea94)
 
 
-- Tambahkan argumen `kategori` pada method `render()`:
+- Tambahkan argumen kategori pada method render():
 
-```php
 public function render($kategori = null)
 {
     $model = new ArtikelModel();
@@ -840,7 +840,7 @@ public function render($kategori = null)
 
     return view('components/artikel_terkini', ['artikel' => $artikel]);
 }
-```
+
 
 - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
