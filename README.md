@@ -821,9 +821,9 @@ public function render($kategori = null)
 
     - Isi setiap kolom pada tabel, bisa manual atau lewat fitur tambah artikel
 
-    - Modifikasi View Cell agar bisa filter berdasarkan kategori. Buka `app/Cells/ArtikelTerkini.php` dan ubah method `render()`:
+- Modifikasi View Cell agar bisa filter berdasarkan kategori. Buka `app/Cells/ArtikelTerkini.php` dan ubah method `render()`:
 
-    ```
+    ```php
     public function render($kategori = null)
     {
         $model = new ArtikelModel();
@@ -837,38 +837,38 @@ public function render($kategori = null)
     }
     ```
 
+- Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
 
-    - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
-    
-    ```
+    ```php
     <?= view_cell('App\\Cells\\ArtikelTerkini::render', ['kategori' => 'Teknologi']) ?>
     ```
 
-    - Tambahkan route agar URL seperti /kategori/teknologi bisa diakses:
-    
-    ```
+- Tambahkan route agar URL seperti /kategori/teknologi bisa diakses:
+
+    ```php
     $routes->get('/kategori/(:segment)', 'Artikel::kategori/$1');
     ```
 
-    - Tambah View-nya (app/Views/artikel/kategori.php)
-    
-    ```
+- Tambah View-nya (app/Views/artikel/kategori.php)
+
+    ```php
     <?= $this->extend('layout/main') ?>
-<?= $this->section('content') ?>
+    <?= $this->section('content') ?>
 
-<h2><?= $title ?></h2>
-<ul>
-    <?php foreach ($artikel as $row): ?>
-        <li>
-            <a href="<?= base_url('/artikel/' . $row['slug']) ?>">
-                <?= esc($row['judul']) ?>
-            </a>
-        </li>
-    <?php endforeach; ?>
-</ul>
+    <h2><?= $title ?></h2>
+    <ul>
+        <?php foreach ($artikel as $row): ?>
+            <li>
+                <a href="<?= base_url('/artikel/' . $row['slug']) ?>">
+                    <?= esc($row['judul']) ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 
-<?= $this->endSection() ?>
-```
+    <?= $this->endSection() ?>
+    ```
+
 
 # Screenshot Hasi
 
