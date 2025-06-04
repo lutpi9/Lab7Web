@@ -1,4 +1,4 @@
-# Pertemuan ke 1-3 <img src=https://seeklogo.com/images/E/elephpant-mascot-php-logo-4C78D1AC4E-seeklogo.com.png width="120px" >
+# Pertemuan ke 1-3 
 
 ## Profil
 |  |  |
