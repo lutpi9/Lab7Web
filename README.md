@@ -47,6 +47,7 @@ Selanjutnya, kalian dapat mencari ekstensi yang diperlukan. Jika ada ekstensi ya
 
 
 <img width="675" alt="cmd1" src="https://github.com/user-attachments/assets/2fe0daf6-9de8-4cd7-84f6-02234cb6aba6" />
+
 * Sebagai contoh, jika ekstensi extension=intl belum aktif, cara mengaktifkannya adalah dengan menghapus tanda titik koma (;) di depan nama ekstensi tersebut. Setelah itu, simpan file tersebut dan lakukan restart pada Apache web server.
 
 ## Instalasi Codeigniter 4
