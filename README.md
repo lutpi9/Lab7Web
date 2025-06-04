@@ -837,19 +837,19 @@ public function render($kategori = null)
     }
     ```
 
-- Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
+  - Panggil View Cell dengan parameter kategori Pada app/Views/layout/main.php:
 
     ```php
     <?= view_cell('App\\Cells\\ArtikelTerkini::render', ['kategori' => 'Teknologi']) ?>
     ```
 
-- Tambahkan route agar URL seperti /kategori/teknologi bisa diakses:
+  - Tambahkan route agar URL seperti /kategori/teknologi bisa diakses:
 
     ```php
     $routes->get('/kategori/(:segment)', 'Artikel::kategori/$1');
     ```
 
-- Tambah View-nya (app/Views/artikel/kategori.php)
+  - Tambah View-nya (app/Views/artikel/kategori.php)
 
     ```php
     <?= $this->extend('layout/main') ?>
